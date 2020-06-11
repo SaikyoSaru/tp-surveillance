@@ -1,0 +1,29 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: python manage.py run -h 0.0.0.0
+    ports:
+      - "5000:5000"
+    environment: 
+        FLASK_ENV: code
+    devices: 
+      - "/dev/video0:/dev/video0"
+    volumes: 
+      - .:/code
+    env_file:
+      - ./.env.dev
+    depends_on: 
+      - db
+  db:
+    image: postgres:alpine
+    volumes:
+      - postgres_data:/home/mattias/docker_projects/volumes/app_data
+    environment: 
+      - POSTGRES_USER=saikyosaru
+      - POSTGRES_PASSWORD=trashlover
+      - POSTGRES_DB=tp_surveillance_db
+
+volumes: 
+  web:
+  postgres_data:

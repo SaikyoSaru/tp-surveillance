@@ -1,0 +1,16 @@
+psycopg2-binary
+flask
+redis
+imutils
+numpy
+argparse
+opencv-python
+sklearn
+pandas
+flask-wtf
+flask-sqlalchemy
+flask-migrate
+flask-login
+email-validator
+gunicorn
+flask-bootstrap
